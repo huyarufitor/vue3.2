@@ -1,6 +1,7 @@
 module.exports = {
   root: true,
   env: {
+    browser:true,
     node: true,
   },
   extends: [
@@ -16,5 +17,8 @@ module.exports = {
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    // 下面两行 为了解决eslint 和prettier 冲突
+    "indent":0,
+    "sapce-before-function-paren":0
   },
 };
