@@ -4,7 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    ElInput: typeof import('element-plus/es')['ElInput']
+    ElButton: typeof import('element-plus/es')['ElButton']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
   }
 }
