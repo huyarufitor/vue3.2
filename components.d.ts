@@ -10,6 +10,7 @@ declare module 'vue' {
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    LoginPage: typeof import('./src/components/LoginPage.vue')['default']
   }
 }
 

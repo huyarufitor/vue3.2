@@ -1,6 +1,7 @@
 <template>
     <div class="hello-world">
         <h1>{{ msg }}</h1>
+        <h2 @click="handleSize">afssfgs</h2>
     </div>
 </template>
 
@@ -8,12 +9,10 @@
 import { Options, Vue } from 'vue-class-component';
 
 @Options({
-    props: {
-        msg: String,
-    },
+    props: {},
 })
 export default class HelloWorld extends Vue {
-    msg!: string;
+    // msg!: string;
 }
 </script>
 

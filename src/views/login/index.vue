@@ -15,16 +15,56 @@
                     <el-input v-model="form.password" type="password"></el-input>
                 </div>
             </el-form-item>
-            <el-button type="primary" class="login-button" @click="handleLogin">用户登录</el-button>
+            <el-button type="primary" class="login-button" @click="handleLogin(form.name, form.password)"
+                >用户登录</el-button
+            >
         </el-form>
+        <div>
+            子组件
+            <LoginPage @handleSize="handleSizeChange"> </LoginPage>
+        </div>
     </div>
 </template>
-<script lang="ts" setup>
-import { ref } from 'vue';
+<script lang="ts">
+import { ref, defineComponent } from 'vue';
+import LoginPage from '@/components/LoginPage.vue';
 import { Avatar, Lock } from '@element-plus/icons-vue';
-const form = ref({
-    name: '',
-    password: '',
+export default defineComponent({
+    components: {
+        LoginPage,
+    },
+    props: {
+        //接收调用组件传回的参数
+        // title: { type: String, default: '3333' },
+    },
+
+    setup(props, context) {
+        console.log('props', props);
+        const form = ref({
+            name: '',
+            password: '',
+        });
+
+        // myNum = 1';
+        const pageSize = ref(100);
+        //  vue3 中的方法methods
+        const handleLogin = function (name: string, password: string): void {
+            const data = { name: name, password: password };
+            console.log('请求数据', data);
+        };
+        // 传递方法给父组件
+        const handleSizeChange = (val: number): void => {
+            pageSize.value = val;
+            context.emit('handleSizeChange', val);
+        };
+        return {
+            handleLogin,
+            form,
+            Avatar,
+            Lock,
+            handleSizeChange,
+        };
+    },
 });
 </script>
 <style lang="scss" scoped>
