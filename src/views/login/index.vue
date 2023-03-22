@@ -20,8 +20,8 @@
             >
         </el-form>
         <div>
-            子组件
-            <LoginPage @handleSize="handleSizeChange"> </LoginPage>
+            childComponent:
+            <LoginPage @handleSize="handleSizeChange" :pageSize="pageSize"> </LoginPage>
         </div>
     </div>
 </template>

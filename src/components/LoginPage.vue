@@ -1,19 +1,42 @@
 <template>
     <div class="hello-world">
-        <h1>{{ msg }}</h1>
-        <h2 @click="handleSize">afssfgs</h2>
+        <el-button type="primary" @click="handleSize">开始推流</el-button>
+        <h2>推流数：{{ count }}</h2>
+        <el-button type="error" @click="clearStream()">停止推流</el-button>
     </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
+import { ref, defineComponent, reactive } from 'vue';
+export default defineComponent({
+    components: {},
+    props: {
+        pageSize: Number,
+    },
 
-@Options({
-    props: {},
-})
-export default class HelloWorld extends Vue {
-    // msg!: string;
-}
+    setup(props, context) {
+        console.log('props', props, context);
+        const count = ref(0);
+        const object = reactive({ foo: 'bar' });
+        const handleSize = () => {
+            count.value++;
+            setInterval(() => {
+                count.value++;
+            }, 1000);
+        };
+        const clearStream = () => {
+            // count.value = 0;
+            clearInterval();
+        };
+
+        return {
+            count,
+            object,
+            handleSize,
+            clearStream,
+        };
+    },
+});
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <HelloWorld msg="this is a vue-ts 项目" />
+        <HelloWorld msg="响应性API" />
     </div>
 </template>
 
